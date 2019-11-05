@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+
+                        <p style="color: cornflowerblue; font-size: 27px;" class="category">Liste des Clients</p>
+                    </div>
+                    <div class="content">
+                        <div class="table-full-width">
+                          
+                            <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th style="color: rgb(100, 206, 156);font-size: 14px;font-weight: bold;" class="td-actions text-left">Nom</th>
+                                        <th style="color: rgb(100, 206, 156);font-size: 14px;font-weight: bold;" class="td-actions text-left" >Adresse</th>
+                                        <th style="color: rgb(100, 206, 156);font-size: 14px;font-weight: bold;"  class="td-actions text-left" >Tel</th>
+                                        <th style="color: rgb(100, 206, 156);font-size: 14px;font-weight: bold;" class="td-actions text-left" >Service</th>
+                                       
+                                        
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr  *ngFor="let client of clients">
+                                        
+                                        <td>{{client.username}}</td>
+                                        <td>{{client.tel}}</td>
+                                        <td>{{client.adresse}}</td>
+                                        <td>{{client.Service}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                                <button type="button" rel="tooltip" title="Edit Task"
+                                                class="btn btn-info btn-simple btn-xs" >
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove" (click)="Delete(client)"
+                                                class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                      </tr>
+                                      
+                                    </tbody>
+                                  </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+     
+    </div>
+</div>
