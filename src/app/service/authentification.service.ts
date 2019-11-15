@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { decodeQuery } from '@angular/router/src/url_tree';
+import { decode } from 'punycode';
 
 
-export class User{
+export class User {
   constructor(
-    public status:string,
+    public status: String,
      ) {}
 }
 
-export class JwtResponse{
+export class JwtResponse {
   constructor(
-    public jwttoken:string,
+    public jwttoken: string,
      ) {}
 }
 
@@ -25,11 +26,11 @@ export class AuthentificationService {
     private httpClient: HttpClient
   ) { }
 
- authenticate(username, password) {
-      return this.httpClient.post<any>('http://localhost:9000/user/login', {username, password}).pipe(
+ authenticate(email, password) {
+      return this.httpClient.post<any>('http://localhost:9000/user/login', {email, password}).pipe(
        map(
          userData => {
-          sessionStorage.setItem('username', username);
+          sessionStorage.setItem('email', email);
           let tokenStr = 'Bearer ' + userData.token;
           sessionStorage.setItem('token', tokenStr);
           return userData;
@@ -39,11 +40,12 @@ export class AuthentificationService {
     }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
+    let user = sessionStorage.getItem('email')
     return !(user === null)
   }
 
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('email')
+    sessionStorage.removeItem('token')
   }
 }

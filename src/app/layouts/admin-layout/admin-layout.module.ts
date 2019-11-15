@@ -32,9 +32,6 @@ import { AjoutClientComponent } from 'app/ajout-client/ajout-client.component';
     TablesComponent,
     AjoutOuvrierComponent,
     AjoutClientComponent
-   
-  
-    
   ]
 })
 
